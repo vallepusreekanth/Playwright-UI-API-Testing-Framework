@@ -1,0 +1,14 @@
+# Node modules
+node_modules/
+
+# # Playwright reports and test results
+# playwright-report/
+# test-results/
+# report/
+
+# # Environment variables
+# .env.**
+
+# # Downloaded files
+# assets/downloads/
+
