@@ -2,13 +2,12 @@
 node_modules/
 
 # # Playwright reports and test results
-# playwright-report/
-# test-results/
-# report/
-
-# # Environment variables
-# .env.**
+playwright-report/
+test-results/
+reports/
+allure-results/
+package-lock.json
 
 # # Downloaded files
-# assets/downloads/
+assets/downloads/
 

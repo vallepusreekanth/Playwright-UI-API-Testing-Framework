@@ -26,7 +26,7 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  reporter: [['line'], ['allure-playwright', { detail: false }]],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
@@ -35,7 +35,10 @@ export default defineConfig({
     video: 'on',
     screenshot: 'on',
     extraHTTPHeaders: {
-      'Accept': 'application/json'
+      Accept: 'application/json',
+    },
+    contextOptions: {
+      ignoreHTTPSErrors: true,
     },
   },
 
@@ -45,7 +48,7 @@ export default defineConfig({
       name: 'api-tests',
       use: {
         baseURL: 'https://automationexercise.com', // API base URL
-      }
+      },
     },
     {
       name: 'chromium',

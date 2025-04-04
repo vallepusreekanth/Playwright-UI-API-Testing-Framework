@@ -1,0 +1,12 @@
+# Call your decryption method here
+node -e "require('./utils/cryptoUtils.js').encryptAll()"
+
+# Exit with a non-zero status if the method fails
+if [ $? -ne 0 ]; then
+    echo "Pre-commit hook failed"
+    exit 1
+fi
+
+# Continue with the commit if the method succeeds
+npx lint-staged
+exit 0

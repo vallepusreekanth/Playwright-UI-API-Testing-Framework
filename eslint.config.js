@@ -1,8 +1,9 @@
-import ts from '@typescript-eslint/eslint-plugin';
-import tsParser from '@typescript-eslint/parser';
-import globals from 'globals';
+const ts = require('@typescript-eslint/eslint-plugin');
+const tsParser = require('@typescript-eslint/parser');
+const globals = require('globals');
+const playwright = require('eslint-plugin-playwright');
 
-export default [
+module.exports = [
     {
         files: ['**/*.ts'],
         languageOptions: {
@@ -16,6 +17,7 @@ export default [
         },
         plugins: {
             '@typescript-eslint': ts,
+            'playwright': playwright,
         },
         rules: {
             '@typescript-eslint/no-unsafe-call': 'off',
@@ -23,6 +25,8 @@ export default [
             '@typescript-eslint/no-unsafe-member-access': 'off',
             '@typescript-eslint/no-inferrable-types': 'off',
             '@typescript-eslint/no-unused-vars': 'error',
+            'playwright/missing-playwright-await': 'error',
+            'playwright/no-commented-out-tests': 'warn',
         },
     },
     {
